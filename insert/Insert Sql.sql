@@ -236,3 +236,142 @@ INSERT INTO reviews (review_id, customer_id, product_id, rating, comment) VALUES
 -- shipments        16
 -- reviews          11
 -- =========================================================
+
+USE shopsphere;
+
+-- =========================================================
+-- ROW COUNT CHECK FOR ALL TABLES
+-- =========================================================
+
+SELECT 'customers' AS table_name, COUNT(*) AS row_count
+FROM customers
+
+UNION ALL
+
+SELECT 'addresses', COUNT(*)
+FROM addresses
+
+UNION ALL
+
+SELECT 'categories', COUNT(*)
+FROM categories
+
+UNION ALL
+
+SELECT 'products', COUNT(*)
+FROM products
+
+UNION ALL
+
+SELECT 'suppliers', COUNT(*)
+FROM suppliers
+
+UNION ALL
+
+SELECT 'product_suppliers', COUNT(*)
+FROM product_suppliers
+
+UNION ALL
+
+SELECT 'orders', COUNT(*)
+FROM orders
+
+UNION ALL
+
+SELECT 'order_items', COUNT(*)
+FROM order_items
+
+UNION ALL
+
+SELECT 'payments', COUNT(*)
+FROM payments
+
+UNION ALL
+
+SELECT 'shipments', COUNT(*)
+FROM shipments
+
+UNION ALL
+
+SELECT 'reviews', COUNT(*)
+FROM reviews;
+
+
+-- =========================================================
+-- TOTAL ROW COUNT
+-- =========================================================
+
+SELECT
+    (
+        (SELECT COUNT(*) FROM customers) +
+        (SELECT COUNT(*) FROM addresses) +
+        (SELECT COUNT(*) FROM categories) +
+        (SELECT COUNT(*) FROM products) +
+        (SELECT COUNT(*) FROM suppliers) +
+        (SELECT COUNT(*) FROM product_suppliers) +
+        (SELECT COUNT(*) FROM orders) +
+        (SELECT COUNT(*) FROM order_items) +
+        (SELECT COUNT(*) FROM payments) +
+        (SELECT COUNT(*) FROM shipments) +
+        (SELECT COUNT(*) FROM reviews)
+    ) AS total_rows;
+
+
+-- =========================================================
+-- CHECK AGAINST TARGET OF 150 ROWS
+-- =========================================================
+
+SELECT
+    150 AS target_rows,
+
+    (
+        (SELECT COUNT(*) FROM customers) +
+        (SELECT COUNT(*) FROM addresses) +
+        (SELECT COUNT(*) FROM categories) +
+        (SELECT COUNT(*) FROM products) +
+        (SELECT COUNT(*) FROM suppliers) +
+        (SELECT COUNT(*) FROM product_suppliers) +
+        (SELECT COUNT(*) FROM orders) +
+        (SELECT COUNT(*) FROM order_items) +
+        (SELECT COUNT(*) FROM payments) +
+        (SELECT COUNT(*) FROM shipments) +
+        (SELECT COUNT(*) FROM reviews)
+    ) AS actual_rows,
+
+    (
+        (
+            (SELECT COUNT(*) FROM customers) +
+            (SELECT COUNT(*) FROM addresses) +
+            (SELECT COUNT(*) FROM categories) +
+            (SELECT COUNT(*) FROM products) +
+            (SELECT COUNT(*) FROM suppliers) +
+            (SELECT COUNT(*) FROM product_suppliers) +
+            (SELECT COUNT(*) FROM orders) +
+            (SELECT COUNT(*) FROM order_items) +
+            (SELECT COUNT(*) FROM payments) +
+            (SELECT COUNT(*) FROM shipments) +
+            (SELECT COUNT(*) FROM reviews)
+        ) - 150
+    ) AS difference_from_target,
+
+    CASE
+        WHEN (
+            (SELECT COUNT(*) FROM customers) +
+            (SELECT COUNT(*) FROM addresses) +
+            (SELECT COUNT(*) FROM categories) +
+            (SELECT COUNT(*) FROM products) +
+            (SELECT COUNT(*) FROM suppliers) +
+            (SELECT COUNT(*) FROM product_suppliers) +
+            (SELECT COUNT(*) FROM orders) +
+            (SELECT COUNT(*) FROM order_items) +
+            (SELECT COUNT(*) FROM payments) +
+            (SELECT COUNT(*) FROM shipments) +
+            (SELECT COUNT(*) FROM reviews)
+        ) >= 150
+        THEN 'PASS - 150 or more rows'
+        ELSE 'BELOW TARGET - less than 150 rows'
+    END AS result;
+
+
+
+

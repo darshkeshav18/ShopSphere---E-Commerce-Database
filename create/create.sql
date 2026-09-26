@@ -1,16 +1,11 @@
--- Delete the existing database if you want a completely fresh setup
 DROP DATABASE IF EXISTS shopsphere;
-
--- Create the database
 CREATE DATABASE shopsphere;
-
--- Select the database
 USE shopsphere;
 
 
--- =========================================================
+-- =========================================
 -- 1. CUSTOMERS
--- =========================================================
+-- =========================================
 
 CREATE TABLE customers (
     customer_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -21,9 +16,9 @@ CREATE TABLE customers (
 );
 
 
--- =========================================================
+-- =========================================
 -- 2. ADDRESSES
--- =========================================================
+-- =========================================
 
 CREATE TABLE addresses (
     address_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -40,9 +35,9 @@ CREATE TABLE addresses (
 );
 
 
--- =========================================================
+-- =========================================
 -- 3. CATEGORIES
--- =========================================================
+-- =========================================
 
 CREATE TABLE categories (
     category_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -56,9 +51,9 @@ CREATE TABLE categories (
 );
 
 
--- =========================================================
+-- =========================================
 -- 4. PRODUCTS
--- =========================================================
+-- =========================================
 
 CREATE TABLE products (
     product_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -77,9 +72,9 @@ CREATE TABLE products (
 );
 
 
--- =========================================================
+-- =========================================
 -- 5. ORDERS
--- =========================================================
+-- =========================================
 
 CREATE TABLE orders (
     order_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -100,9 +95,9 @@ CREATE TABLE orders (
 );
 
 
--- =========================================================
+-- =========================================
 -- 6. ORDER ITEMS
--- =========================================================
+-- =========================================
 
 CREATE TABLE order_items (
     order_id INT NOT NULL,
@@ -127,9 +122,9 @@ CREATE TABLE order_items (
 );
 
 
--- =========================================================
+-- =========================================
 -- 7. PAYMENTS
--- =========================================================
+-- =========================================
 
 CREATE TABLE payments (
     payment_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -143,13 +138,22 @@ CREATE TABLE payments (
         ON DELETE CASCADE
         ON UPDATE CASCADE,
 
-    CHECK (amount >= 0)
+    CHECK (amount >= 0),
+
+    CHECK (
+        status IN (
+            'Pending',
+            'Paid',
+            'Failed',
+            'Refunded'
+        )
+    )
 );
 
 
--- =========================================================
+-- =========================================
 -- 8. SHIPMENTS
--- =========================================================
+-- =========================================
 
 CREATE TABLE shipments (
     shipment_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -165,9 +169,9 @@ CREATE TABLE shipments (
 );
 
 
--- =========================================================
+-- =========================================
 -- 9. REVIEWS
--- =========================================================
+-- =========================================
 
 CREATE TABLE reviews (
     review_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -192,9 +196,9 @@ CREATE TABLE reviews (
 );
 
 
--- =========================================================
+-- =========================================
 -- 10. SUPPLIERS
--- =========================================================
+-- =========================================
 
 CREATE TABLE suppliers (
     supplier_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -204,9 +208,9 @@ CREATE TABLE suppliers (
 );
 
 
--- =========================================================
+-- =========================================
 -- 11. PRODUCT SUPPLIERS
--- =========================================================
+-- =========================================
 
 CREATE TABLE product_suppliers (
     product_id INT NOT NULL,
@@ -227,4 +231,3 @@ CREATE TABLE product_suppliers (
 
     CHECK (supply_price >= 0)
 );
-
