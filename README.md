@@ -4,7 +4,7 @@
 
 ---
 
-Project Overview
+### Project Overview
 
 **ShopSphere** is a relational database designed to model the core operations of an e-commerce platform.
 
@@ -31,7 +31,7 @@ The project demonstrates important **Database Management System (DBMS)** concept
 
 ---
 
-Project Objectives
+### Project Objectives
 
 The main objectives of ShopSphere are:
 
@@ -48,7 +48,7 @@ The main objectives of ShopSphere are:
 
 ---
 
-Database Architecture
+### Database Architecture
 
 The database is organized around the following major entities:
 
@@ -90,7 +90,7 @@ SUPPLIERS
 ```
 
 ---
-Database Schema
+### Database Schema
 
 ShopSphere contains **11 relational tables**.
 
@@ -110,7 +110,7 @@ ShopSphere contains **11 relational tables**.
 
 ---
 
-Customers
+### Customers
 
 The `CUSTOMERS` table stores information about users registered on the platform.
 
@@ -126,7 +126,7 @@ A customer can have multiple addresses, orders, and reviews.
 
 ---
 
-Addresses
+### Addresses
 
 The `ADDRESSES` table stores addresses associated with customers.
 
@@ -147,7 +147,7 @@ CUSTOMERS 1 ─────────── M ADDRESSES
 
 ---
 
-Categories
+### Categories
 
 The `CATEGORIES` table organizes products into different categories.
 
@@ -170,7 +170,7 @@ Electronics
 
 ---
 
-Products
+### Products
 
 The `PRODUCTS` table contains the main product catalogue.
 
@@ -191,7 +191,7 @@ stock_qty >= 0
 
 ---
 
-Suppliers
+### Suppliers
 
 The `SUPPLIERS` table stores supplier information.
 
@@ -206,7 +206,7 @@ A supplier can provide multiple products.
 
 ---
 
-Product Suppliers
+### Product Suppliers
 
 `PRODUCT_SUPPLIERS` is a junction table that resolves the many-to-many relationship between products and suppliers.
 
@@ -233,7 +233,7 @@ PRODUCTS M ───────── N SUPPLIERS
 
 ---
 
-Orders
+### Orders
 
 The `ORDERS` table stores customer orders.
 
@@ -262,7 +262,7 @@ ADDRESSES 1 ─────────── M ORDERS
 
 ---
 
-Order Items
+### Order Items
 
 The `ORDER_ITEMS` table stores individual products included in an order.
 
@@ -288,7 +288,7 @@ PRODUCTS 1 ───────── M ORDER_ITEMS
 
 ---
 
-Payments
+### Payments
 
 The `PAYMENTS` table stores payment information.
 
@@ -308,7 +308,7 @@ The `PAYMENTS` table stores payment information.
 
 ---
 
-Shipments
+### Shipments
 
 The `SHIPMENTS` table tracks order delivery information.
 
@@ -322,7 +322,7 @@ The `SHIPMENTS` table tracks order delivery information.
 
 ---
 
-Reviews
+### Reviews
 
 The `REVIEWS` table stores customer feedback about products.
 
@@ -390,7 +390,7 @@ products.product_id
 
 ---
 
-Relationship Types
+### Relationship Types
 
 ### One-to-Many
 
@@ -420,7 +420,7 @@ PRODUCT M ─────── N SUPPLIER
 
 ---
 
-Database Normalization
+### Database Normalization
 
 ShopSphere follows a **3NF-oriented relational design**.
 
@@ -455,7 +455,7 @@ unit_price
 
 ### 3NF — Third Normal Form
 
-Independent entities are separated into their own tables.
+### Independent entities are separated into their own tables.
 
 Examples:
 
@@ -467,11 +467,11 @@ CATEGORIES
 ORDERS
 ```
 
-This reduces redundancy and helps prevent update anomalies.
+### This reduces redundancy and helps prevent update anomalies.
 
 ---
 
-Integrity Constraints
+### Integrity Constraints
 
 ShopSphere uses several database constraints.
 
@@ -506,7 +506,7 @@ rating BETWEEN 1 AND 5
 
 ---
 
-Dataset Summary
+### Dataset Summary
 
 The sample dataset contains **150 records** across 11 tables.
 
@@ -527,7 +527,7 @@ The sample dataset contains **150 records** across 11 tables.
 
 ---
 
-Business Analytics
+### Business Analytics
 
 The project contains **10 business-oriented SQL queries**.
 
@@ -652,7 +652,7 @@ SUPPLIERS
 
 ---
 
-Database Validation
+### Database Validation
 
 A dedicated validation script is included to check database quality and consistency.
 
@@ -816,7 +816,7 @@ Execute the SQL files inside the `queries` folder.
 
 ---
 
-Technology Stack
+### Technology Stack
 
 | Technology | Purpose |
 |---|---|
@@ -828,7 +828,7 @@ Technology Stack
 
 ---
 
-Future Enhancements
+### Future Enhancements
 
 Possible future improvements include:
 
@@ -889,7 +889,7 @@ Project Highlights
 
 ---
 
-Academic Purpose
+### Academic Purpose
 
 ShopSphere was developed as a **DBMS / Relational Database project** to demonstrate how real-world e-commerce operations can be converted into a structured relational data model.
 
@@ -915,7 +915,7 @@ This project demonstrates both **database design concepts** and **practical SQL 
 
 ---
 
-Documentation
+### Documentation
 
 The repository includes:
 
@@ -930,7 +930,7 @@ The repository includes:
 
 ---
 
-Conclusion
+### Conclusion
 
 **ShopSphere** demonstrates how a complete e-commerce system can be represented using a structured relational database.
 
@@ -956,7 +956,7 @@ Through its normalized schema, relational constraints, sample dataset, validatio
 
 ---
 
-Project Status
+### Project Status
 
 **Status:** Completed
 
@@ -974,7 +974,7 @@ Project Status
 
 ---
 
-Project
+### Project
 
 **ShopSphere — E-Commerce Database**
 
