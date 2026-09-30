@@ -914,7 +914,10 @@ Validation
 Business Analytics
 ```
 
+
+
 This project demonstrates both **database design concepts** and **practical SQL skills**.
+
 
 ---
 
@@ -977,7 +980,8 @@ Through its normalized schema, relational constraints, sample dataset, validatio
 
 ---
 
-### Project
+
+Our Project:
 
 **ShopSphere — E-Commerce Database**
 
