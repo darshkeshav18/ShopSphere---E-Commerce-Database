@@ -8,6 +8,8 @@ USE shopsphere;
 -- ---------------------------------------------------------
 -- 1. CUSTOMERS (12 rows)
 -- ---------------------------------------------------------
+
+
 INSERT INTO customers (customer_id, name, email, phone, created_at) VALUES
 (1, 'Aarav Sharma', 'aarav.sharma@gmail.com', '9876543210', '2026-01-05 09:15:00'),
 (2, 'Riya Nair', 'riya.nair@gmail.com', '9876543211', '2026-01-07 11:30:00'),
