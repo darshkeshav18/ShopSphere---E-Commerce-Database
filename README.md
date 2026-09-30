@@ -937,9 +937,7 @@ Business Analytics
 ```
 
 
-
 This project demonstrates both **database design concepts** and **practical SQL skills**.
-
 
 ---
 
@@ -957,6 +955,8 @@ The repository includes:
 - README documentation
 
 ---
+
+
 
 ### Conclusion
 
