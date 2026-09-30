@@ -29,6 +29,8 @@ The project demonstrates important **Database Management System (DBMS)** concept
 - Business analytics
 - Data validation
 
+
+
 ---
 
 ### Project Objectives
@@ -143,6 +145,7 @@ The `ADDRESSES` table stores addresses associated with customers.
 
 ```text
 CUSTOMERS 1 ─────────── M ADDRESSES
+One-Many
 ```
 
 ---
