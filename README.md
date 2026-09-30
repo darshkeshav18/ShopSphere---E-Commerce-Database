@@ -37,6 +37,8 @@ The project demonstrates important **Database Management System (DBMS)** concept
 
 ---
 
+
+
 ### Project Objectives
 
 The main objectives of ShopSphere are:
@@ -53,6 +55,8 @@ The main objectives of ShopSphere are:
 10. Build a database structure that can be extended into a larger e-commerce application.
 
 ---
+
+
 
 ### Database Architecture
 
@@ -100,6 +104,8 @@ SUPPLIERS
 
 
 ---
+
+
 ### Database Schema
 
 ShopSphere contains **11 relational tables**.
@@ -121,6 +127,8 @@ ShopSphere contains **11 relational tables**.
 
 
 ---
+
+
 
 ### Customers
 
