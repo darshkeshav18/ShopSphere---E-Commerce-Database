@@ -2,13 +2,17 @@
 
 > A relational database project for an e-commerce platform, designed using **MySQL 8+** with ER modelling, normalization, integrity constraints, sample data, validation queries, and business-oriented SQL analytics.
 
+
 ---
 
-### Project Overview
+### Our Project Overview
+
 
 **ShopSphere** is a relational database designed to model the core operations of an e-commerce platform.
 
+
 The database represents the complete order lifecycle — from customer and address management to products, categories, orders, payments, shipments, reviews, and suppliers.
+
 
 The project demonstrates important **Database Management System (DBMS)** concepts including:
 
@@ -63,6 +67,8 @@ The database is organized around the following major entities:
                          │  ADDRESSES   │
                          └──────────────┘
 
+
+
 CUSTOMERS
     │
     └─────────────── ORDERS
@@ -91,6 +97,8 @@ PRODUCT_SUPPLIERS
 SUPPLIERS
 ```
 
+
+
 ---
 ### Database Schema
 
@@ -109,6 +117,8 @@ ShopSphere contains **11 relational tables**.
 | 9 | `PAYMENTS` | Stores payment information |
 | 10 | `SHIPMENTS` | Stores shipment information |
 | 11 | `REVIEWS` | Stores customer product reviews |
+
+
 
 ---
 
@@ -140,6 +150,9 @@ The `ADDRESSES` table stores addresses associated with customers.
 - `city`
 - `state`
 - `pincode`
+
+
+
 
 ### Relationship
 
