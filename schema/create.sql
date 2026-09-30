@@ -1,3 +1,5 @@
+-- v2 of schema with indexses
+
 DROP DATABASE IF EXISTS shopsphere;
 CREATE DATABASE shopsphere;
 USE shopsphere;
@@ -231,3 +233,57 @@ CREATE TABLE product_suppliers (
 
     CHECK (supply_price >= 0)
 );
+
+
+-- =========================================
+-- INDEXES FOR QUERY OPTIMIZATION
+-- =========================================
+
+-- Helps category-based product queries
+-- Used in revenue-by-category joins
+CREATE INDEX idx_products_category
+ON products(category_id);
+
+
+-- Helps low-inventory queries
+-- Example: WHERE stock_qty < 10
+CREATE INDEX idx_products_stock
+ON products(stock_qty);
+
+
+-- Helps customer order aggregation
+-- Useful for finding valuable customers
+CREATE INDEX idx_orders_customer_status
+ON orders(customer_id, status);
+
+
+-- Helps filtering orders by status and date
+-- Useful for sales/revenue analysis
+CREATE INDEX idx_orders_status_date
+ON orders(status, order_date);
+
+
+-- Helps product-based order item aggregation
+-- Useful for best-selling product queries
+CREATE INDEX idx_order_items_product
+ON order_items(product_id);
+
+
+-- Helps filter payments by payment status
+-- Useful when calculating paid revenue
+CREATE INDEX idx_payments_status
+ON payments(status);
+
+
+-- Helps product rating and review aggregation
+-- Useful for highest-rated product queries
+CREATE INDEX idx_reviews_product_rating
+ON reviews(product_id, rating);
+
+
+-- Helps supplier-based product searches
+-- product_id is already indexed by the composite primary key,
+-- but supplier_id is the second column, so this index is useful
+-- when searching by supplier_id.
+CREATE INDEX idx_product_suppliers_supplier
+ON product_suppliers(supplier_id);
