@@ -563,6 +563,7 @@ Calculates total units sold for each product using:
 SUM(quantity)
 ```
 
+
 Cancelled orders are excluded.
 
 | Product | Units Sold |
@@ -979,7 +980,11 @@ Payments / Shipments / Reviews
 Suppliers
 ```
 
+
+
 Through its normalized schema, relational constraints, sample dataset, validation queries and business analytics, ShopSphere demonstrates the practical application of core **Database Management System (DBMS)** concepts in an e-commerce environment.
+
+
 
 ---
 
@@ -1000,6 +1005,7 @@ Through its normalized schema, relational constraints, sample dataset, validatio
 **Normalization:** 3NF-oriented
 
 ---
+
 
 
 Our Project:
