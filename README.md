@@ -547,7 +547,7 @@ The sample dataset contains **150 records** across 11 tables.
 | Payments | 16 |
 | Shipments | 16 |
 | Reviews | 11 |
-| **Total** | **150** |
+| **Total** | **146** |
 
 ---
 
@@ -906,7 +906,7 @@ Project Highlights
 | Database | ShopSphere |
 | DBMS | MySQL 8+ |
 | Tables | 11 |
-| Sample Records | 150 |
+| Sample Records | 146 |
 | Business Queries | 10 |
 | Validation Checks | 14 |
 | Normalization | 3NF-oriented |
@@ -996,7 +996,7 @@ Through its normalized schema, relational constraints, sample dataset, validatio
 
 **Tables:** 11
 
-**Sample Records:** 150
+**Sample Records:** 146
 
 **Business Queries:** 10
 
