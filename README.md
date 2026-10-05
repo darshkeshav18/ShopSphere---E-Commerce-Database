@@ -650,11 +650,12 @@ Sample results:
 
 | Status | Orders |
 |---|---:|
-| Delivered | 8 |
-| Shipped | 3 |
+| Delivered | 10 |
+| Shipped | 4 |
 | Confirmed | 2 |
 | Pending | 2 |
 | Cancelled | 1 |
+| Total | 20 
 
 ### 9. Orders Awaiting Payment
 
@@ -906,7 +907,7 @@ Project Highlights
 | Database | ShopSphere |
 | DBMS | MySQL 8+ |
 | Tables | 11 |
-| Sample Records | 146 |
+| Sample Records | 202 |
 | Business Queries | 10 |
 | Validation Checks | 14 |
 | Normalization | 3NF-oriented |
@@ -996,7 +997,7 @@ Through its normalized schema, relational constraints, sample dataset, validatio
 
 **Tables:** 11
 
-**Sample Records:** 146
+**Sample Records:**202
 
 **Business Queries:** 10
 
