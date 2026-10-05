@@ -121,21 +121,20 @@ GROUP BY status
 ORDER BY order_count DESC, status;
 
 
--- Q9. Which orders are still awaiting payment?
-SELECT
-    o.order_id,
-    c.name AS customer_name,
-    p.amount,
-    p.method,
-    p.status
-FROM orders o
-JOIN customers c ON o.customer_id = c.customer_id
-JOIN payments p ON o.order_id = p.order_id
-WHERE p.status = 'Pending'
-ORDER BY o.order_id;
+-- Q9. Which customers have never placed an order?
 
+SELECT
+    c.customer_id,
+    c.name,
+    c.email
+FROM customers c
+LEFT JOIN orders o
+    ON c.customer_id = o.customer_id
+WHERE o.order_id IS NULL
+ORDER BY c.customer_id;
 
 -- Q10. Which suppliers provide products, and what is their supply price?
+
 SELECT
     s.supplier_id,
     s.name AS supplier_name,
@@ -143,6 +142,10 @@ SELECT
     p.name AS product_name,
     ps.supply_price
 FROM suppliers s
-JOIN product_suppliers ps ON s.supplier_id = ps.supplier_id
+JOIN product_suppliers ps
+    ON s.supplier_id = ps.supplier_id
+JOIN products p
+    ON ps.product_id = p.product_id
+ORDER BY s.supplier_id, p.product_id;
 JOIN products p ON ps.product_id = p.product_id
 ORDER BY s.supplier_id, p.product_id;
