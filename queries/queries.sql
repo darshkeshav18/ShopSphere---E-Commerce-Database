@@ -147,5 +147,3 @@ JOIN product_suppliers ps
 JOIN products p
     ON ps.product_id = p.product_id
 ORDER BY s.supplier_id, p.product_id;
-JOIN products p ON ps.product_id = p.product_id
-ORDER BY s.supplier_id, p.product_id;
