@@ -997,7 +997,7 @@ Through its normalized schema, relational constraints, sample dataset, validatio
 
 **Tables:** 11
 
-**Sample Records:**202
+**Sample Records:** 202
 
 **Business Queries:** 10
 
