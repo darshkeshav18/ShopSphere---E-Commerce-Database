@@ -397,6 +397,7 @@ products.product_id
 
 ---
 
+
 # Relationship Types
 
 ## One-to-Many
@@ -409,12 +410,14 @@ ORDER 1 ────────── M ORDER_ITEMS
 PRODUCT 1 ──────── M REVIEWS
 ```
 
+
 ## One-to-One
 
 ```text
 ORDER 1 ───────── 1 PAYMENT
 ORDER 1 ───────── 1 SHIPMENT
 ```
+
 
 ## Many-to-Many
 
@@ -424,6 +427,7 @@ PRODUCT M ─────── N SUPPLIER
            ▼
     PRODUCT_SUPPLIERS
 ```
+
 
 ---
 
