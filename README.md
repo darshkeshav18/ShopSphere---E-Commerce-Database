@@ -6,6 +6,7 @@
 
 ---
 
+
 ## Our Project Overview
 
 **ShopSphere** is a relational database designed to model the core operations of an e-commerce platform.
@@ -677,6 +678,7 @@ Products identified include:
 | Smart Watch | 6 |
 | Coffee Maker | 4 |
 | Air Fryer | 9 |
+
 
 ---
 
