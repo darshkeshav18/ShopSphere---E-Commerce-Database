@@ -952,6 +952,7 @@ folder.
 
 ---
 
+
 # Technology Stack
 
 | Technology | Purpose |
