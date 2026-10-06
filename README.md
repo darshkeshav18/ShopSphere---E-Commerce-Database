@@ -375,6 +375,7 @@ PRODUCT_SUPPLIERS
 → (product_id, supplier_id)
 ```
 
+
 ## Foreign Keys
 
 ```text
@@ -395,12 +396,13 @@ reviews.product_id
 products.product_id
 ```
 
+
 ---
 
 
 # Relationship Types
 
-## One-to-Many
+## One-to-Many Relationship
 
 ```text
 CUSTOMER 1 ─────── M ORDERS
@@ -411,7 +413,7 @@ PRODUCT 1 ──────── M REVIEWS
 ```
 
 
-## One-to-One
+## One-to-One Relationship
 
 ```text
 ORDER 1 ───────── 1 PAYMENT
@@ -419,7 +421,7 @@ ORDER 1 ───────── 1 SHIPMENT
 ```
 
 
-## Many-to-Many
+## Many-to-Many Relationship
 
 ```text
 PRODUCT M ─────── N SUPPLIER
