@@ -1081,9 +1081,7 @@ Through its normalized schema, relational constraints, updated **202-record data
 
 ---
 
-# Project Status
-
-**Status:** Completed
+# Project Status:
 
 **Database:** MySQL 8+
 
@@ -1097,9 +1095,11 @@ Through its normalized schema, relational constraints, updated **202-record data
 
 **Normalization:** 3NF-oriented
 
+
 ---
 
-# Our Project
+
+# Our Project:
 
 ## ShopSphere — E-Commerce Database
 
