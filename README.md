@@ -1040,13 +1040,14 @@ This project demonstrates both **database design concepts** and **practical SQL 
 
 ---
 
+
 # Documentation
 
 The repository includes:
 
 - ER Diagram
 - Database schema
-- Updated 202-record sample dataset
+- 202 records sample dataset
 - SQL queries
 - Validation script
 - Normalization documentation
