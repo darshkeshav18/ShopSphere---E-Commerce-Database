@@ -121,29 +121,45 @@ GROUP BY status
 ORDER BY order_count DESC, status;
 
 
--- Q9. Which customers have never placed an order?
-
+-- Q9. Which active orders are still awaiting payment?
+-- Non-cancelled orders whose payment is not yet 'Paid'.
 SELECT
-    c.customer_id,
-    c.name,
-    c.email
-FROM customers c
-LEFT JOIN orders o
-    ON c.customer_id = o.customer_id
-WHERE o.order_id IS NULL
-ORDER BY c.customer_id;
+    o.order_id,
+    c.name AS customer_name,
+    o.status AS order_status,
+    p.amount,
+    p.method,
+    p.status AS payment_status
+FROM orders o
+JOIN customers c ON c.customer_id = o.customer_id
+JOIN payments p  ON p.order_id = o.order_id
+WHERE p.status <> 'Paid'
+  AND o.status <> 'Cancelled'
+ORDER BY o.order_id;
 
--- Q10. Which suppliers provide products, and what is their supply price?
-
+-- Q10. Who is the cheapest supplier for each product, and what profit
+-- margin does that give against the current selling price?
+-- (RANK() keeps ties, so two equally cheap suppliers would both appear.)
 SELECT
-    s.supplier_id,
-    s.name AS supplier_name,
-    p.product_id,
-    p.name AS product_name,
-    ps.supply_price
-FROM suppliers s
-JOIN product_suppliers ps
-    ON s.supplier_id = ps.supplier_id
-JOIN products p
-    ON ps.product_id = p.product_id
-ORDER BY s.supplier_id, p.product_id;
+    product_id,
+    product_name,
+    selling_price,
+    cheapest_supplier,
+    supply_price,
+    selling_price - supply_price AS margin_per_unit,
+    ROUND((selling_price - supply_price) / selling_price * 100, 1) AS margin_percent
+FROM (
+    SELECT
+        p.product_id,
+        p.name  AS product_name,
+        p.price AS selling_price,
+        s.name  AS cheapest_supplier,
+        ps.supply_price,
+        RANK() OVER (PARTITION BY p.product_id ORDER BY ps.supply_price) AS price_rank
+    FROM products p
+    JOIN product_suppliers ps ON ps.product_id = p.product_id
+    JOIN suppliers s          ON s.supplier_id = ps.supplier_id
+) ranked
+WHERE price_rank = 1
+ORDER BY margin_percent DESC, product_id;
+ 
