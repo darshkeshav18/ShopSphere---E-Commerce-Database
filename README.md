@@ -857,6 +857,7 @@ CHECK
 
 # Repository Structure
 
+
 ```text
 ShopSphere---E-Commerce-Database/
 │
@@ -895,7 +896,9 @@ You can use:
 - VS Code with a MySQL extension
 - Any MySQL-compatible SQL client
 
+
 ---
+
 
 ## 2. Create the Database
 
