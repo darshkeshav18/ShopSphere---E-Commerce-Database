@@ -267,9 +267,11 @@ ADDRESSES 1 ─────────── M ORDERS
 
 ---
 
+
 ## Order Items
 
 The `ORDER_ITEMS` table stores individual products included in an order.
+
 
 ### Attributes
 
