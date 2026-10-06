@@ -982,32 +982,32 @@ Possible future improvements include:
 
 # DBMS Concepts Covered
 
-```text
-✓ Relational Database
-✓ ER Modelling
-✓ Entities
-✓ Attributes
-✓ Primary Keys
-✓ Foreign Keys
-✓ Composite Keys
-✓ 1:1 Relationships
-✓ 1:M Relationships
-✓ M:N Relationships
-✓ Self-Referencing Relationships
-✓ Normalization
-✓ 1NF
-✓ 2NF
-✓ 3NF
-✓ Referential Integrity
-✓ Domain Constraints
-✓ CHECK Constraints
-✓ SQL Joins
-✓ Aggregate Functions
-✓ GROUP BY
-✓ HAVING
-✓ Data Validation
-✓ Business Analytics
-```
+
+Relational Database
+ER Modelling
+Entities
+Attributes
+Primary Keys
+Foreign Keys
+Composite Keys
+1:1 Relationships
+1:M Relationships
+M:N Relationships
+Self-Referencing Relationships
+Normalization:
+1NF
+2NF
+3NF
+Referential Integrity
+Domain Constraints
+CHECK Constraints
+SQL Joins
+Aggregate Functions
+GROUP BY
+HAVING
+Data Validation
+Business Analytics
+
 
 ---
 
