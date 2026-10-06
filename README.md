@@ -2,17 +2,13 @@
 
 > A relational database project for an e-commerce platform, designed using **MySQL 8+** with ER modelling, normalization, integrity constraints, sample data, validation queries, and business-oriented SQL analytics.
 
-
 ---
 
-### Our Project Overview
-
+## Our Project Overview
 
 **ShopSphere** is a relational database designed to model the core operations of an e-commerce platform.
 
-
 The database represents the complete order lifecycle — from customer and address management to products, categories, orders, payments, shipments, reviews, and suppliers.
-
 
 The project demonstrates important **Database Management System (DBMS)** concepts including:
 
@@ -33,13 +29,9 @@ The project demonstrates important **Database Management System (DBMS)** concept
 - Business analytics
 - Data validation
 
-
-
 ---
 
-
-
-### Project Objectives
+## Project Objectives
 
 The main objectives of ShopSphere are:
 
@@ -56,9 +48,7 @@ The main objectives of ShopSphere are:
 
 ---
 
-
-
-### Database Architecture
+## Database Architecture
 
 The database is organized around the following major entities:
 
@@ -72,25 +62,25 @@ The database is organized around the following major entities:
                          └──────────────┘
 
 
-
 CUSTOMERS
     │
     └─────────────── ORDERS
                          │
-          ┌──────────────┼──────────────┐
-          │              │              │
-          ▼              ▼              ▼
-    ORDER_ITEMS       PAYMENTS      SHIPMENTS
-          │
-          ▼
-      PRODUCTS
-          │
-     ┌────┴────┐
-     ▼         ▼
-CATEGORIES   REVIEWS
-     │
-     ▼
-SUB-CATEGORIES
+             ┌───────────┼───────────┐
+             │           │           │
+             ▼           ▼           ▼
+       ORDER_ITEMS    PAYMENTS    SHIPMENTS
+             │
+             ▼
+          PRODUCTS
+             │
+        ┌────┴────┐
+        ▼         ▼
+   CATEGORIES   REVIEWS
+        │
+        ▼
+   SUB-CATEGORIES
+
 
 PRODUCTS
     │
@@ -101,12 +91,9 @@ PRODUCT_SUPPLIERS
 SUPPLIERS
 ```
 
-
-
 ---
 
-
-### Database Schema
+# Database Schema
 
 ShopSphere contains **11 relational tables**.
 
@@ -124,13 +111,9 @@ ShopSphere contains **11 relational tables**.
 | 10 | `SHIPMENTS` | Stores shipment information |
 | 11 | `REVIEWS` | Stores customer product reviews |
 
-
-
 ---
 
-
-
-### Customers
+## Customers
 
 The `CUSTOMERS` table stores information about users registered on the platform.
 
@@ -146,7 +129,7 @@ A customer can have multiple addresses, orders, and reviews.
 
 ---
 
-### Addresses
+## Addresses
 
 The `ADDRESSES` table stores addresses associated with customers.
 
@@ -159,19 +142,15 @@ The `ADDRESSES` table stores addresses associated with customers.
 - `state`
 - `pincode`
 
-
-
-
 ### Relationship
 
 ```text
 CUSTOMERS 1 ─────────── M ADDRESSES
-One-Many
 ```
 
 ---
 
-### Categories
+## Categories
 
 The `CATEGORIES` table organizes products into different categories.
 
@@ -183,7 +162,7 @@ The `CATEGORIES` table organizes products into different categories.
 
 The table supports a self-referencing relationship.
 
-Example:
+### Example
 
 ```text
 Electronics
@@ -194,7 +173,7 @@ Electronics
 
 ---
 
-### Products
+## Products
 
 The `PRODUCTS` table contains the main product catalogue.
 
@@ -215,7 +194,7 @@ stock_qty >= 0
 
 ---
 
-### Suppliers
+## Suppliers
 
 The `SUPPLIERS` table stores supplier information.
 
@@ -230,7 +209,7 @@ A supplier can provide multiple products.
 
 ---
 
-### Product Suppliers
+## Product Suppliers
 
 `PRODUCT_SUPPLIERS` is a junction table that resolves the many-to-many relationship between products and suppliers.
 
@@ -252,12 +231,12 @@ A supplier can provide multiple products.
 PRODUCTS M ───────── N SUPPLIERS
              │
              ▼
-      PRODUCT_SUPPLIERS
+       PRODUCT_SUPPLIERS
 ```
 
 ---
 
-### Orders
+## Orders
 
 The `ORDERS` table stores customer orders.
 
@@ -286,7 +265,7 @@ ADDRESSES 1 ─────────── M ORDERS
 
 ---
 
-### Order Items
+## Order Items
 
 The `ORDER_ITEMS` table stores individual products included in an order.
 
@@ -312,7 +291,7 @@ PRODUCTS 1 ───────── M ORDER_ITEMS
 
 ---
 
-### Payments
+## Payments
 
 The `PAYMENTS` table stores payment information.
 
@@ -332,7 +311,7 @@ The `PAYMENTS` table stores payment information.
 
 ---
 
-### Shipments
+## Shipments
 
 The `SHIPMENTS` table tracks order delivery information.
 
@@ -346,7 +325,7 @@ The `SHIPMENTS` table tracks order delivery information.
 
 ---
 
-### Reviews
+## Reviews
 
 The `REVIEWS` table stores customer feedback about products.
 
@@ -366,9 +345,9 @@ The `REVIEWS` table stores customer feedback about products.
 
 ---
 
-Keys Used
+# Keys Used
 
-### Primary Keys
+## Primary Keys
 
 ```text
 CUSTOMERS       → customer_id
@@ -382,7 +361,7 @@ SHIPMENTS       → shipment_id
 REVIEWS         → review_id
 ```
 
-### Composite Keys
+## Composite Keys
 
 ```text
 ORDER_ITEMS
@@ -392,7 +371,7 @@ PRODUCT_SUPPLIERS
 → (product_id, supplier_id)
 ```
 
-### Foreign Keys
+## Foreign Keys
 
 ```text
 orders.customer_id
@@ -414,9 +393,9 @@ products.product_id
 
 ---
 
-### Relationship Types
+# Relationship Types
 
-### One-to-Many
+## One-to-Many
 
 ```text
 CUSTOMER 1 ─────── M ORDERS
@@ -426,29 +405,29 @@ ORDER 1 ────────── M ORDER_ITEMS
 PRODUCT 1 ──────── M REVIEWS
 ```
 
-### One-to-One
+## One-to-One
 
 ```text
 ORDER 1 ───────── 1 PAYMENT
 ORDER 1 ───────── 1 SHIPMENT
 ```
 
-### Many-to-Many
+## Many-to-Many
 
 ```text
 PRODUCT M ─────── N SUPPLIER
-             │
-             ▼
-      PRODUCT_SUPPLIERS
+           │
+           ▼
+    PRODUCT_SUPPLIERS
 ```
 
 ---
 
-### Database Normalization
+# Database Normalization
 
 ShopSphere follows a **3NF-oriented relational design**.
 
-### 1NF — First Normal Form
+## 1NF — First Normal Form
 
 Repeating and multi-valued information is separated into individual records.
 
@@ -460,7 +439,15 @@ ORDER_ITEMS
 
 instead of storing multiple products directly inside the `ORDERS` table.
 
-### 2NF — Second Normal Form
+### Benefits
+
+- Atomic values
+- No repeating groups
+- Each record can be uniquely identified
+
+---
+
+## 2NF — Second Normal Form
 
 Composite-key tables ensure that non-key attributes depend on the complete key.
 
@@ -477,9 +464,13 @@ quantity
 unit_price
 ```
 
-### 3NF — Third Normal Form
+Both `quantity` and `unit_price` depend on the complete composite key.
 
-### Independent entities are separated into their own tables.
+---
+
+## 3NF — Third Normal Form
+
+Independent entities are separated into their own tables.
 
 Examples:
 
@@ -489,13 +480,41 @@ PRODUCTS
 SUPPLIERS
 CATEGORIES
 ORDERS
+ADDRESSES
+PAYMENTS
+SHIPMENTS
+REVIEWS
 ```
 
-### This reduces redundancy and helps prevent update anomalies.
+Customer details depend on `customer_id`, product details depend on `product_id`, and order details depend on `order_id`.
+
+This reduces redundancy and helps prevent:
+
+- Update anomalies
+- Insertion anomalies
+- Deletion anomalies
 
 ---
 
-### Integrity Constraints
+## Functional Dependencies
+
+| Table | Primary Key | Functional Dependency | Normal Form |
+|---|---|---|---|
+| Customers | `customer_id` | `customer_id → name, email, phone, created_at` | 3NF |
+| Addresses | `address_id` | `address_id → customer_id, line1, city, state, pincode` | 3NF |
+| Categories | `category_id` | `category_id → name, parent_category_id` | 3NF |
+| Products | `product_id` | `product_id → name, category_id, price, stock_qty` | 3NF |
+| Orders | `order_id` | `order_id → customer_id, address_id, order_date, status` | 3NF |
+| Order Items | `(order_id, product_id)` | `(order_id, product_id) → quantity, unit_price` | 3NF |
+| Payments | `payment_id` | `payment_id → order_id, amount, method, status` | 3NF |
+| Shipments | `shipment_id` | `shipment_id → order_id, courier, shipped_date, delivered_date` | 3NF |
+| Reviews | `review_id` | `review_id → customer_id, product_id, rating, comment` | 3NF |
+| Suppliers | `supplier_id` | `supplier_id → name, contact_email, city` | 3NF |
+| Product Suppliers | `(product_id, supplier_id)` | `(product_id, supplier_id) → supply_price` | 3NF |
+
+---
+
+# Integrity Constraints
 
 ShopSphere uses several database constraints.
 
@@ -519,9 +538,9 @@ Prevents duplicate values where uniqueness is required.
 
 Protects valid domain values.
 
-Examples:
+### Examples
 
-```text
+```sql
 price >= 0
 stock_qty >= 0
 quantity > 0
@@ -530,39 +549,47 @@ rating BETWEEN 1 AND 5
 
 ---
 
-### Dataset Summary
+# Dataset Summary
 
-The sample dataset contains **150 records** across 11 tables.
+The updated ShopSphere dataset contains **202 records across 11 tables**.
 
 | Table | Records |
 |---|---:|
-| Customers | 12 |
-| Addresses | 13 |
+| Customers | 14 |
+| Addresses | 16 |
 | Categories | 7 |
 | Products | 16 |
 | Suppliers | 6 |
-| Product Suppliers | 10 |
-| Orders | 16 |
-| Order Items | 23 |
-| Payments | 16 |
-| Shipments | 16 |
-| Reviews | 11 |
-| **Total** | **146** |
+| Product Suppliers | 21 |
+| Orders | 20 |
+| Order Items | 32 |
+| Payments | 20 |
+| Shipments | 20 |
+| Reviews | 30 |
+| **Total** | **202** |
 
 ---
 
-### Business Analytics
+# Business Analytics
 
 The project contains **10 business-oriented SQL queries**.
 
-### 1. Best-Selling Products
+The updated analysis follows these assumptions:
+
+- Cancelled orders are excluded from sales/revenue calculations.
+- Only `Paid` payments count toward customer value.
+- Low inventory means `stock_qty < 10`.
+- A product must have at least **2 reviews** to appear in the highest-rated-products query.
+
+---
+
+## 1. Best-Selling Products
 
 Calculates total units sold for each product using:
 
 ```sql
 SUM(quantity)
 ```
-
 
 Cancelled orders are excluded.
 
@@ -576,9 +603,11 @@ Cancelled orders are excluded.
 | Samsung Galaxy S24 | 2 |
 | Data Science Handbook | 2 |
 
-### 2. Most Valuable Customers
+---
 
-Ranks customers based on total amount paid on valid, non-cancelled orders.
+## 2. Most Valuable Customers
+
+Ranks customers based on the total amount paid on valid, non-cancelled orders.
 
 | Customer | Total Paid |
 |---|---:|
@@ -588,7 +617,9 @@ Ranks customers based on total amount paid on valid, non-cancelled orders.
 | Rahul Verma | ₹58,999 |
 | Karan Mehta | ₹55,696 |
 
-### 3. Revenue by Category
+---
+
+## 3. Revenue by Category
 
 Revenue is calculated as:
 
@@ -598,20 +629,26 @@ quantity × unit_price
 
 | Category | Revenue |
 |---|---:|
-| Mobiles | ₹224,996 |
+| Mobiles | ₹309,994 |
 | Laptops | ₹176,997 |
-| Audio | ₹17,993 |
-| Fashion | ₹12,192 |
+| Audio | ₹22,991 |
+| Fashion | ₹17,798 |
 | Home & Kitchen | ₹9,498 |
-| Books | ₹5,095 |
+| Books | ₹5,094 |
 
-### 4. Average Order Value
+---
+
+## 4. Average Order Value
 
 ```text
-Average Order Value = ₹34,367.00
+Average Order Value = ₹30,181.22
 ```
 
-### 5. Low Inventory Products
+The query calculates the total of each non-cancelled order and then calculates the average.
+
+---
+
+## 5. Low Inventory Products
 
 Low inventory is defined as:
 
@@ -621,15 +658,21 @@ stock_qty < 10
 
 Products identified include:
 
-- HP Pavilion Laptop
-- Coffee Maker
-- Dell Inspiron Laptop
-- Smart Watch
-- Lenovo IdeaPad Slim
-- iPhone 15
-- Air Fryer
+| Product | Stock |
+|---|---:|
+| iPhone 15 | 7 |
+| Dell Inspiron Laptop | 5 |
+| HP Pavilion Laptop | 3 |
+| Lenovo IdeaPad Slim | 7 |
+| Smart Watch | 6 |
+| Coffee Maker | 4 |
+| Air Fryer | 9 |
 
-### 6. Highest-Rated Products
+---
+
+## 6. Highest-Rated Products
+
+Products must have at least two reviews.
 
 | Product | Average Rating | Reviews |
 |---|---:|---:|
@@ -637,16 +680,22 @@ Products identified include:
 | Wireless Headphones | 4.67 | 3 |
 | Running Shoes | 3.50 | 2 |
 
-### 7. Customers with No Orders
+---
+
+## 7. Customers with No Orders
 
 A `LEFT JOIN` is used to identify customers without associated orders.
 
-Sample results:
+Sample results include:
 
-- Dev Malhotra
-- Nisha Menon
+```text
+Dev Malhotra
+Nisha Menon
+```
 
-### 8. Orders by Status
+---
+
+## 8. Orders by Status
 
 | Status | Orders |
 |---|---:|
@@ -654,17 +703,21 @@ Sample results:
 | Shipped | 4 |
 | Confirmed | 2 |
 | Pending | 2 |
-| Cancelled | 1 |
-| Total | 20 
+| Cancelled | 2 |
+| **Total** | **20** |
 
-### 9. Orders Awaiting Payment
+---
+
+## 9. Orders Awaiting Payment
 
 | Order | Customer | Amount | Method |
 |---:|---|---:|---|
 | 5 | Ananya Rao | ₹5,097 | Card |
 | 16 | Vikram Singh | ₹1,499 | Card |
 
-### 10. Supplier/Product Relationships
+---
+
+## 10. Supplier/Product Relationships
 
 Demonstrates the many-to-many relationship between:
 
@@ -676,9 +729,11 @@ PRODUCT_SUPPLIERS
 SUPPLIERS
 ```
 
+The query joins the three tables to display supplier, product and supply-price information.
+
 ---
 
-### Database Validation
+# Database Validation
 
 A dedicated validation script is included to check database quality and consistency.
 
@@ -699,13 +754,29 @@ The project contains **14 validation checks**:
 13. Duplicate reviews
 14. Duplicate product-supplier relationships
 
-The expected clean-state result is **zero rows returned** for each validation query.
+### Expected Result
+
+Each validation query should return:
+
+```text
+0 rows
+```
+
+when the database is in a clean state.
+
+The updated dataset contains:
+
+```text
+202 total records
+```
+
+Therefore, any row-count validation should use **202** as the expected dataset size.
 
 ---
 
-SQL Concepts Demonstrated
+# SQL Concepts Demonstrated
 
-### DDL
+## DDL
 
 ```sql
 CREATE DATABASE
@@ -713,26 +784,26 @@ CREATE TABLE
 DROP DATABASE
 ```
 
-### DML
+## DML
 
 ```sql
 INSERT INTO
 ```
 
-### DQL
+## DQL
 
 ```sql
 SELECT
 ```
 
-### Joins
+## Joins
 
 ```sql
 INNER JOIN
 LEFT JOIN
 ```
 
-### Aggregate Functions
+## Aggregate Functions
 
 ```sql
 SUM()
@@ -741,26 +812,26 @@ COUNT()
 ROUND()
 ```
 
-### Grouping
+## Grouping
 
 ```sql
 GROUP BY
 HAVING
 ```
 
-### Filtering
+## Filtering
 
 ```sql
 WHERE
 ```
 
-### Sorting
+## Sorting
 
 ```sql
 ORDER BY
 ```
 
-### Constraints
+## Constraints
 
 ```sql
 PRIMARY KEY
@@ -772,7 +843,7 @@ CHECK
 
 ---
 
-Repository Structure
+# Repository Structure
 
 ```text
 ShopSphere---E-Commerce-Database/
@@ -784,7 +855,7 @@ ShopSphere---E-Commerce-Database/
 │   └── Normalization related files
 │
 ├── data/
-│   └── Sample dataset / INSERT scripts
+│   └── Updated 202-record dataset / INSERT scripts
 │
 ├── queries/
 │   └── Business SQL queries
@@ -799,9 +870,9 @@ ShopSphere---E-Commerce-Database/
 
 ---
 
-How to Run the Project
+# How to Run the Project
 
-### 1. Install MySQL
+## 1. Install MySQL
 
 Install **MySQL 8+**.
 
@@ -812,7 +883,9 @@ You can use:
 - VS Code with a MySQL extension
 - Any MySQL-compatible SQL client
 
-### 2. Create the Database
+---
+
+## 2. Create the Database
 
 ```sql
 CREATE DATABASE shopsphere;
@@ -820,15 +893,27 @@ CREATE DATABASE shopsphere;
 USE shopsphere;
 ```
 
-### 3. Create the Tables
+---
+
+## 3. Create the Tables
 
 Run the SQL files inside the `schema` folder.
 
-### 4. Insert the Data
+---
+
+## 4. Insert the Updated Dataset
 
 Run the SQL files inside the `data` folder.
 
-### 5. Run Validation
+The current dataset contains:
+
+```text
+202 records
+```
+
+---
+
+## 5. Run Validation
 
 Execute:
 
@@ -836,13 +921,23 @@ Execute:
 ShopSphere_Normalization_Validation.sql
 ```
 
-### 6. Run Business Queries
-
-Execute the SQL files inside the `queries` folder.
+Make sure all validation queries return zero rows.
 
 ---
 
-### Technology Stack
+## 6. Run Business Queries
+
+Execute the SQL files inside the:
+
+```text
+queries/
+```
+
+folder.
+
+---
+
+# Technology Stack
 
 | Technology | Purpose |
 |---|---|
@@ -854,7 +949,7 @@ Execute the SQL files inside the `queries` folder.
 
 ---
 
-### Future Enhancements
+# Future Enhancements
 
 Possible future improvements include:
 
@@ -869,7 +964,7 @@ Possible future improvements include:
 
 ---
 
-DBMS Concepts Covered
+# DBMS Concepts Covered
 
 ```text
 ✓ Relational Database
@@ -900,14 +995,14 @@ DBMS Concepts Covered
 
 ---
 
-Project Highlights
+# Project Highlights
 
 | Metric | Value |
 |---|---:|
 | Database | ShopSphere |
 | DBMS | MySQL 8+ |
 | Tables | 11 |
-| Sample Records | 202 |
+| Sample Records | **202** |
 | Business Queries | 10 |
 | Validation Checks | 14 |
 | Normalization | 3NF-oriented |
@@ -915,7 +1010,7 @@ Project Highlights
 
 ---
 
-### Academic Purpose
+# Academic Purpose
 
 ShopSphere was developed as a **DBMS / Relational Database project** to demonstrate how real-world e-commerce operations can be converted into a structured relational data model.
 
@@ -930,25 +1025,24 @@ Normalization
       ↓
 SQL Implementation
       ↓
-Sample Dataset
+Updated 202-Record Dataset
       ↓
 Validation
       ↓
 Business Analytics
 ```
 
-
 This project demonstrates both **database design concepts** and **practical SQL skills**.
 
 ---
 
-### Documentation
+# Documentation
 
 The repository includes:
 
 - ER Diagram
 - Database schema
-- Sample dataset
+- Updated 202-record sample dataset
 - SQL queries
 - Validation script
 - Normalization documentation
@@ -957,9 +1051,7 @@ The repository includes:
 
 ---
 
-
-
-### Conclusion
+# Conclusion
 
 **ShopSphere** demonstrates how a complete e-commerce system can be represented using a structured relational database.
 
@@ -981,15 +1073,11 @@ Payments / Shipments / Reviews
 Suppliers
 ```
 
-
-
-Through its normalized schema, relational constraints, sample dataset, validation queries and business analytics, ShopSphere demonstrates the practical application of core **Database Management System (DBMS)** concepts in an e-commerce environment.
-
-
+Through its normalized schema, relational constraints, updated **202-record dataset**, validation queries and business analytics, ShopSphere demonstrates the practical application of core **Database Management System (DBMS)** concepts in an e-commerce environment.
 
 ---
 
-### Project Status
+# Project Status
 
 **Status:** Completed
 
@@ -1007,10 +1095,11 @@ Through its normalized schema, relational constraints, sample dataset, validatio
 
 ---
 
+# Our Project
 
-
-Our Project:
-
-**ShopSphere — E-Commerce Database**
+## ShopSphere — E-Commerce Database
 
 A collaborative DBMS project focused on relational database design, SQL implementation, data validation, normalization and business analytics.
+```
+
+This version matches the **202-record dataset** documented in your final report, including the table-wise counts and updated analytics. :chatgpt-content-reference{index="0"}
