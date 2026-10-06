@@ -1,6 +1,6 @@
 -- ============================================================
 -- ShopSphere Database - Normalization Validation
--- Contributor: Hemanth Singh
+-- Contributor: Hemanth Singh and Gokul reddy
 -- Contribution: Normalization analysis and validation
 -- ============================================================
 
