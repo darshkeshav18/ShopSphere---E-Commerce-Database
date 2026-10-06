@@ -1120,3 +1120,5 @@ A collaborative DBMS project focused on relational database design, SQL implemen
 ```
 
 This version matches the **202-record dataset** documented in your final report, including the table-wise counts and updated analytics. :chatgpt-content-reference{index="0"}
+
+THANK YOU!!
