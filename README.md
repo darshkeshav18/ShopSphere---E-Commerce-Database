@@ -1,8 +1,6 @@
 # ShopSphere — E-Commerce Database
 
-
-> A relational database project for an e-commerce platform, designed using **MySQL 8+** with ER modelling, normalization, integrity constraints, sample data, validation queries, and business-oriented SQL analytics.
-
+A relational database project for an e-commerce platform, designed using **MySQL 8+** with ER modelling, normalization, integrity constraints, sample data, validation queries, and business-oriented SQL analytics.
 
 ---
 
