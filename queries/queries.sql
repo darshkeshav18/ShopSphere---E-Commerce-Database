@@ -1,4 +1,4 @@
-USE shopsphere;
+ shopsphere;
 
 -- =========================================================
 -- ShopSphere - Section 6: Business Questions
