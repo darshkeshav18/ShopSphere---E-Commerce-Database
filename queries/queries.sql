@@ -14,7 +14,6 @@ USE shopsphere;
 
 -- Q1. What are the best-selling products?
 SELECT
-    
     p.product_id,
     p.name,
     SUM(oi.quantity) AS total_units_sold
