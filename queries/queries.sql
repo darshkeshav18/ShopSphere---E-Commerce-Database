@@ -161,5 +161,5 @@ FROM (
     JOIN suppliers s          ON s.supplier_id = ps.supplier_id
 ) ranked
 WHERE price_rank = 1
-ORDER BY margin_percent DESC, product_id
+ORDER BY margin_percent DESC, product_id;
  
